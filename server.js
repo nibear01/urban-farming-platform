@@ -90,15 +90,15 @@ app.use(errorHandlerMiddleware);
 
 const server = app.listen(config.port, () => {
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-  console.log(`✅ Server is running on port ${config.port}`);
-  console.log(`🏥 Liveness Check: http://localhost:${config.port}/health`);
+  console.log(`Server is running on port ${config.port}`);
+  console.log(`Liveness Check: http://localhost:${config.port}/health`);
   console.log(
-    `👍 Readiness Check: http://localhost:${config.port}/health/ready`,
+    `Readiness Check: http://localhost:${config.port}/health/ready`,
   );
   console.log(
-    `📊 Detailed Health: http://localhost:${config.port}/health/detailed`,
+    `Detailed Health: http://localhost:${config.port}/health/detailed`,
   );
-  console.log(`🌍 Environment: ${config.nodeEnv}`);
+  console.log(`Environment: ${config.nodeEnv}`);
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 });
 
