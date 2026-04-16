@@ -1,0 +1,351 @@
+{
+  "info": {
+    "_postman_id": "98b4dc99-3ca6-482f-8c8b-36d4959501f8",
+    "name": "VENDOR ROUTES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46908426"
+  },
+  "item": [
+    {
+      "name": "Create Vendor Profile",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU5NzczLCJleHAiOjE3NzYzNjA2NzN9.uiXJ7uhKPGV-Xra1vUTuvxCmhgQ6Ok4xSMBI6ABoWfI",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"farmName\": \"Green Valley Farms\",\r\n  \"farmDescription\": \"Organic farming with sustainable practices\",\r\n  \"farmLocation\": \"Bagerhat, Bangladesh\",\r\n  \"latitude\": 34.0522,\r\n  \"longitude\": -118.2437\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/vendors",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "vendors"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Vendors",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/vendors?page=1&limit=10&status=APPROVED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "vendors"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "status",
+              "value": "APPROVED"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get My Vendor Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2MDM2OCwiZXhwIjoxNzc2MzYxMjY4fQ.9sLQuszpvUEOwVfnidWjofcjk5LWltqY1tstf96xZvc",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/vendors/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "vendors",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update My Vendor Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2MDM2OCwiZXhwIjoxNzc2MzYxMjY4fQ.9sLQuszpvUEOwVfnidWjofcjk5LWltqY1tstf96xZvc",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"farmName\": \"Updated Farm Name\",\r\n  \"farmDescription\": \"Updated description\",\r\n  \"farmLocation\": \"New Location\",\r\n  \"latitude\": 34.0522,\r\n  \"longitude\": -118.2437\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/vendors/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "vendors",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Vendor Profile by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/vendors/cmo1mzh9z000to8evk73jjmg4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "vendors",
+            "cmo1mzh9z000to8evk73jjmg4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Rental Spaces",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/vendors/rental-spaces?page=1&limit=10&location=California&availabilityStatus=AVAILABLE",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "vendors",
+            "rental-spaces"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "location",
+              "value": "California"
+            },
+            {
+              "key": "availabilityStatus",
+              "value": "AVAILABLE"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Rental Space",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2MDM2OCwiZXhwIjoxNzc2MzYxMjY4fQ.9sLQuszpvUEOwVfnidWjofcjk5LWltqY1tstf96xZvc",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"location\": \"Downtown Los Angeles\",\r\n  \"size\": 5000,\r\n  \"price\": 500,\r\n  \"description\": \"Premium rental space near downtown\",\r\n  \"latitude\": 34.0522,\r\n  \"longitude\": -118.2437\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/vendors/rental-spaces",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "vendors",
+            "rental-spaces"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Rental Space",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2MDM2OCwiZXhwIjoxNzc2MzYxMjY4fQ.9sLQuszpvUEOwVfnidWjofcjk5LWltqY1tstf96xZvc",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"location\": \"Updated Location\",\r\n  \"size\": 6000,\r\n  \"price\": 550,\r\n  \"description\": \"Updated description\",\r\n  \"availability\": \"RENTED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/vendors/rental-spaces/cmo1rah1x000640ev37tzi63v",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "vendors",
+            "rental-spaces",
+            "cmo1rah1x000640ev37tzi63v"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Rental Space",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2MDM2OCwiZXhwIjoxNzc2MzYxMjY4fQ.9sLQuszpvUEOwVfnidWjofcjk5LWltqY1tstf96xZvc",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/vendors/rental-spaces/cmo1rah1x000640ev37tzi63v",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "vendors",
+            "rental-spaces",
+            "cmo1rah1x000640ev37tzi63v"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

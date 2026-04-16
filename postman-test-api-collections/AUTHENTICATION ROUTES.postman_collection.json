@@ -1,0 +1,227 @@
+{
+  "info": {
+    "_postman_id": "06744684-4e04-4f8e-b64c-34af0c547449",
+    "name": "AUTHENTICATION ROUTES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46908426"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"SecurePass@123\",\r\n  \"confirmPassword\": \"SecurePass@123\",\r\n  \"role\": \"CUSTOMER\",\r\n  \"phone\": \"9876543210\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "/* user login credentials\r\n{\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"SecurePass@123\"\r\n}*/\r\n\r\n\r\n// admin login credentials\r\n{\r\n    \"email\": \"admin@farmingplatform.com\",\r\n    \"password\": \"NewSecurePass@456\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Refresh Access Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwiaWF0IjoxNzc2MzU0ODAzLCJleHAiOjE3NzY5NTk2MDN9.l5qGURyUUUd3oxEdzmeJW_WkhZsJk4q8JXnSA9R1pOY\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/refresh-token",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "refresh-token"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Current User Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU0ODAzLCJleHAiOjE3NzYzNTU3MDN9.g5Sqv83SUNl1PsMJ2dd0RxbR_EANUraIs2izEtqJPbE",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/auth/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Change Password",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU0ODAzLCJleHAiOjE3NzYzNTU3MDN9.g5Sqv83SUNl1PsMJ2dd0RxbR_EANUraIs2izEtqJPbE",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"currentPassword\": \"AdminPass@123\",\r\n  \"newPassword\": \"NewSecurePass@456\",\r\n  \"confirmPassword\": \"NewSecurePass@456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/change-password",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "change-password"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Logout User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU0ODAzLCJleHAiOjE3NzYzNTU3MDN9.g5Sqv83SUNl1PsMJ2dd0RxbR_EANUraIs2izEtqJPbE",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU0ODAzLCJleHAiOjE3NzYzNTU3MDN9.g5Sqv83SUNl1PsMJ2dd0RxbR_EANUraIs2izEtqJPbE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/logout",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

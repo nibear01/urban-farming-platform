@@ -1,0 +1,330 @@
+{
+  "info": {
+    "_postman_id": "b750c698-138b-4b68-bf06-35131a9ee151",
+    "name": "USER ROUTES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46908426"
+  },
+  "item": [
+    {
+      "name": "Get All Users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU5NzczLCJleHAiOjE3NzYzNjA2NzN9.uiXJ7uhKPGV-Xra1vUTuvxCmhgQ6Ok4xSMBI6ABoWfI",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/users?page=1&limit=10&role=CUSTOMER&status=ACTIVE",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "role",
+              "value": "CUSTOMER"
+            },
+            {
+              "key": "status",
+              "value": "ACTIVE"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU2NTY4LCJleHAiOjE3NzYzNTc0Njh9.hrH7J75-TrjR3ajIC3VPuNTdG0YVHQRsRFvatSt7Oz4",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/users/search?q=Sustainable Greens&role=VENDOR",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "users",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Sustainable Greens"
+            },
+            {
+              "key": "role",
+              "value": "VENDOR"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get User Statistics",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU2NTY4LCJleHAiOjE3NzYzNTc0Njh9.hrH7J75-TrjR3ajIC3VPuNTdG0YVHQRsRFvatSt7Oz4",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/users/stats/overview",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "users",
+            "stats",
+            "overview"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": "",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get User by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU5MDUwLCJleHAiOjE3NzYzNTk5NTB9.pO7J1zks-Qw3upgm9lwaBzc5X6jPsfR-AsJSEuDmJIg",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/users/cmo1mzh9w000so8evm5t1v8w6",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "users",
+            "cmo1mzh9w000so8evm5t1v8w6"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": "cmo1mzh88000po8ev9mo4iemr",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Own Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU5MDUwLCJleHAiOjE3NzYzNTk5NTB9.pO7J1zks-Qw3upgm9lwaBzc5X6jPsfR-AsJSEuDmJIg",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Admin name updated\",\r\n  \"phone\": \"9876543210\",\r\n  \"address\": \"123 Main Street\",\r\n  \"city\": \"New York\",\r\n  \"state\": \"NY\",\r\n  \"zipCode\": \"10001\",\r\n  \"country\": \"USA\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/users/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "users",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update User Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU5MDUwLCJleHAiOjE3NzYzNTk5NTB9.pO7J1zks-Qw3upgm9lwaBzc5X6jPsfR-AsJSEuDmJIg",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"status\": \"SUSPENDED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/users/cmo1mzh9w000so8evm5t1v8w6/status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "users",
+            "cmo1mzh9w000so8evm5t1v8w6",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Approve Vendor",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU5MDUwLCJleHAiOjE3NzYzNTk5NTB9.pO7J1zks-Qw3upgm9lwaBzc5X6jPsfR-AsJSEuDmJIg",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/users/cmo1mzh88000po8ev9mo4iemr/approve-vendor",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "users",
+            "cmo1mzh88000po8ev9mo4iemr",
+            "approve-vendor"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete User",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncHMwMDAwbzhldjYzdGQybnVlIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzc2MzU5NzczLCJleHAiOjE3NzYzNjA2NzN9.uiXJ7uhKPGV-Xra1vUTuvxCmhgQ6Ok4xSMBI6ABoWfI",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/users/cmo1mzhbr000vo8eviyakxzew",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "users",
+            "cmo1mzhbr000vo8eviyakxzew"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

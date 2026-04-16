@@ -1,0 +1,261 @@
+{
+  "info": {
+    "_postman_id": "68948024-f148-4104-af53-e431ae6ce14f",
+    "name": "PRODUCE/PRODUCT ROUTES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46908426"
+  },
+  "item": [
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2MTc4NywiZXhwIjoxNzc2MzYyNjg3fQ.tX-pNCu9Q82ge4LqoVWfA6cv51A5kZlmcg0RHgxrTyg",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Organic Carrots\",\r\n  \"description\": \"Fresh organic carrots grown without pesticides\",\r\n  \"price\": 4.99,\r\n  \"category\": \"VEGETABLES\",\r\n  \"availableQuantity\": 100,\r\n  \"unit\": \"kg\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/produce",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Products",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/produce?page=1&limit=10&category=VEGETABLES&minPrice=0&maxPrice=50&search=tomato",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "category",
+              "value": "VEGETABLES"
+            },
+            {
+              "key": "minPrice",
+              "value": "0"
+            },
+            {
+              "key": "maxPrice",
+              "value": "50"
+            },
+            {
+              "key": "search",
+              "value": "tomato"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Product by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/produce/cmo1rj4sq000840ev88nvgwv0",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce",
+            "cmo1rj4sq000840ev88nvgwv0"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Vendor's Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/produce/vendor/cmo1mzgrx0002o8evzekokxsn?page=1&limit=10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce",
+            "vendor",
+            "cmo1mzgrx0002o8evzekokxsn"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Product",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2MTM3MSwiZXhwIjoxNzc2MzYyMjcxfQ.QU16znHYTsk5jCH9czBwVHLbk7B4wkR3VClTOOt-Nrg",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/produce/cmo1rtcop000a40evwy157y2k",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce",
+            "cmo1rtcop000a40evwy157y2k"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Product",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2MTM3MSwiZXhwIjoxNzc2MzYyMjcxfQ.QU16znHYTsk5jCH9czBwVHLbk7B4wkR3VClTOOt-Nrg",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/produce/cmo1rtcop000a40evwy157y2k",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce",
+            "cmo1rtcop000a40evwy157y2k"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Marketplace Statistics",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/produce/stats/marketplace",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce",
+            "stats",
+            "marketplace"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

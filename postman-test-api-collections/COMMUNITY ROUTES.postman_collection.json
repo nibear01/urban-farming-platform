@@ -1,0 +1,427 @@
+{
+  "info": {
+    "_postman_id": "4fb79a20-59c2-46fc-a17f-376ee50246e0",
+    "name": "COMMUNITY ROUTES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46908426"
+  },
+  "item": [
+    {
+      "name": "Create Community Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2NDc1NiwiZXhwIjoxNzc2MzY1NjU2fQ.e6VUG1VvbARLAQ6771_glwvr2ABqh_AtuhGXG5D5PJQ",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Best Practices for Organic Farming\",\r\n  \"content\": \"I would like to share some insights on organic farming techniques that have worked well for my farm. Starting with soil preparation...\",\r\n  \"category\": \"farming-tips\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/community",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Community Posts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/community?page=1&limit=10&sort=-createdAt&category=soil",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "sort",
+              "value": "-createdAt"
+            },
+            {
+              "key": "category",
+              "value": "soil"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Community Statistics",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/community/stats/overview",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community",
+            "stats",
+            "overview"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Posts by Category",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/community/category/farming-tips?page=1&limit=10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community",
+            "category",
+            "farming-tips"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Community Post by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/community/cmo1t6ww0000160ev15nv96c1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community",
+            "cmo1t6ww0000160ev15nv96c1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Community Post",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2NDc1NiwiZXhwIjoxNzc2MzY1NjU2fQ.e6VUG1VvbARLAQ6771_glwvr2ABqh_AtuhGXG5D5PJQ",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Updated Title: Best Practices for Organic Farming\",\r\n  \"content\": \"Updated content with more details...\",\r\n  \"category\": \"farming-tips\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/community/cmo1t6ww0000160ev15nv96c1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community",
+            "cmo1t6ww0000160ev15nv96c1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Community Post",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2NDc1NiwiZXhwIjoxNzc2MzY1NjU2fQ.e6VUG1VvbARLAQ6771_glwvr2ABqh_AtuhGXG5D5PJQ",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/community/cmo1t6ww0000160ev15nv96c1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community",
+            "cmo1t6ww0000160ev15nv96c1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Reply to Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2NDc1NiwiZXhwIjoxNzc2MzY1NjU2fQ.e6VUG1VvbARLAQ6771_glwvr2ABqh_AtuhGXG5D5PJQ",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"content\": \"Great tips! I've been using similar techniques and they really work. One additional tip I would add is...\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/community/cmo1ttvtl000460evs6zasymy/replies",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community",
+            "cmo1ttvtl000460evs6zasymy",
+            "replies"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post Replies",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/community/cmo1ttvtl000460evs6zasymy/replies?page=1&limit=10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community",
+            "cmo1ttvtl000460evs6zasymy",
+            "replies"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Reply",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2NDc1NiwiZXhwIjoxNzc2MzY1NjU2fQ.e6VUG1VvbARLAQ6771_glwvr2ABqh_AtuhGXG5D5PJQ",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"content\": \"Updated reply content with more details...\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/community/replies/cmo1tv8pp000560ev0fvrlp40",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community",
+            "replies",
+            "cmo1tv8pp000560ev0fvrlp40"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Reply",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2NDc1NiwiZXhwIjoxNzc2MzY1NjU2fQ.e6VUG1VvbARLAQ6771_glwvr2ABqh_AtuhGXG5D5PJQ",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/community/replies/cmo1tv8pp000560ev0fvrlp40",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "community",
+            "replies",
+            "cmo1tv8pp000560ev0fvrlp40"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

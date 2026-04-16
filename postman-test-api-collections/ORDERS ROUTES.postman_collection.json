@@ -1,0 +1,177 @@
+{
+  "info": {
+    "_postman_id": "344f2d60-365b-4ed3-a0f4-93d30e825a5e",
+    "name": "ORDERS ROUTES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46908426"
+  },
+  "item": [
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2Mjg4NCwiZXhwIjoxNzc2MzYzNzg0fQ.ClrrqUE3Q7aGUfAJJtmbmXbnu7I9y7HNEgvWVd9oEOY",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"produceId\": \"cmo1rztmz000c40evzf91ro8i\",\r\n  \"quantity\": 5\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/produce/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Orders",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2Mjg4NCwiZXhwIjoxNzc2MzYzNzg0fQ.ClrrqUE3Q7aGUfAJJtmbmXbnu7I9y7HNEgvWVd9oEOY",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/produce/orders?page=1&limit=10&status=PENDING&sortBy=createdAt",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce",
+            "orders"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "status",
+              "value": "PENDING"
+            },
+            {
+              "key": "sortBy",
+              "value": "createdAt"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Order by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2Mjg4NCwiZXhwIjoxNzc2MzYzNzg0fQ.ClrrqUE3Q7aGUfAJJtmbmXbnu7I9y7HNEgvWVd9oEOY",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/produce/orders/cmo1s12kj000e40eviz96px2b",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce",
+            "orders",
+            "cmo1s12kj000e40eviz96px2b"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Order Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbW8xbXpncm4wMDAxbzhldnN5bnhrbmhwIiwicm9sZSI6IlZFTkRPUiIsImlhdCI6MTc3NjM2Mjg4NCwiZXhwIjoxNzc2MzYzNzg0fQ.ClrrqUE3Q7aGUfAJJtmbmXbnu7I9y7HNEgvWVd9oEOY",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"status\": \"CONFIRMED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/produce/orders/cmo1s12kj000e40eviz96px2b/status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "produce",
+            "orders",
+            "cmo1s12kj000e40eviz96px2b",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
