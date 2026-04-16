@@ -1,0 +1,289 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Enums for role-based access control
+enum Role {
+  ADMIN
+  VENDOR
+  CUSTOMER
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  PENDING
+}
+
+enum CertificationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  RETURNED
+}
+
+enum ProductCategory {
+  VEGETABLES
+  FRUITS
+  ORGANIC_SEEDS
+  GARDENING_TOOLS
+  COMPOST
+  FERTILIZERS
+  PESTICIDES_ORGANIC
+  HERBS
+  FLOWERS
+  OTHER
+}
+
+enum RentalStatus {
+  AVAILABLE
+  RENTED
+  MAINTENANCE
+  UNAVAILABLE
+}
+
+// User Entity
+model User {
+  id            String   @id @default(cuid())
+  name          String
+  email         String   @unique
+  password      String
+  role          Role     @default(CUSTOMER)
+  status        UserStatus @default(PENDING)
+  profileImage  String?
+  phone         String?
+  address       String?
+  city          String?
+  state         String?
+  zipCode       String?
+  country       String?
+  
+  // Relations
+  vendorProfile VendorProfile?
+  orders        Order[]
+  communityPosts CommunityPost[]
+  posts         ForumPost[]
+  refreshTokens RefreshToken[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([email])
+  @@index([role])
+  @@index([status])
+}
+
+// Refresh Token Entity for JWT Token Management
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+// Vendor Profile Entity
+model VendorProfile {
+  id                    String   @id @default(cuid())
+  userId                String   @unique
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  farmName              String
+  farmDescription       String?
+  farmLocation          String
+  latitude              Float?
+  longitude             Float?
+  certificationStatus   CertificationStatus @default(PENDING)
+  
+  // Relations
+  produces              Produce[]
+  rentalSpaces          RentalSpace[]
+  sustainabilityCerts   SustainabilityCert[]
+  orders                Order[]
+  
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  @@index([certificationStatus])
+  @@index([farmLocation])
+}
+
+// Produce/Product Entity
+model Produce {
+  id                    String   @id @default(cuid())
+  vendorId              String
+  vendor                VendorProfile @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  
+  name                  String
+  description           String?
+  price                 Float
+  category              ProductCategory
+  certificationStatus   CertificationStatus @default(PENDING)
+  availableQuantity     Int      @default(0)
+  unit                  String   @default("kg")
+  image                 String?
+  
+  // Relations
+  orders                Order[]
+  
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  @@index([vendorId])
+  @@index([category])
+  @@index([certificationStatus])
+  @@index([price])
+}
+
+// Rental Space Entity
+model RentalSpace {
+  id            String   @id @default(cuid())
+  vendorId      String
+  vendor        VendorProfile @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  
+  location      String
+  size          Float    // Size in square meters
+  price         Float    // Price per month or per period
+  availability  RentalStatus @default(AVAILABLE)
+  description   String?
+  latitude      Float?
+  longitude     Float?
+  
+  // Relations
+  rentals       Rental[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([vendorId])
+  @@index([availability])
+  @@index([location])
+}
+
+// Rental Booking Entity (for tracking who rented what space)
+model Rental {
+  id              String   @id @default(cuid())
+  rentalSpaceId   String
+  rentalSpace     RentalSpace @relation(fields: [rentalSpaceId], references: [id], onDelete: Cascade)
+  
+  customerId      String
+  startDate       DateTime
+  endDate         DateTime
+  status          RentalStatus @default(AVAILABLE)
+  totalPrice      Float
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([rentalSpaceId])
+  @@index([customerId])
+  @@index([status])
+}
+
+// Order Entity
+model Order {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  produceId     String
+  produce       Produce  @relation(fields: [produceId], references: [id], onDelete: Restrict)
+  
+  vendorId      String
+  vendor        VendorProfile @relation(fields: [vendorId], references: [id], onDelete: Restrict)
+  
+  quantity      Int
+  totalPrice    Float
+  status        OrderStatus @default(PENDING)
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([userId])
+  @@index([vendorId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// Community Post Entity (for forum/discussion)
+model CommunityPost {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  content       String
+  title         String?
+  category      String   @default("general")
+  
+  // Relations
+  replies       ForumPost[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([userId])
+  @@index([category])
+  @@index([createdAt])
+}
+
+// Forum Post Reply Entity
+model ForumPost {
+  id            String   @id @default(cuid())
+  postId        String
+  post          CommunityPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  content       String
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([postId])
+  @@index([userId])
+  @@index([createdAt])
+}
+
+// Sustainability Certification Entity
+model SustainabilityCert {
+  id                String   @id @default(cuid())
+  vendorId          String
+  vendor            VendorProfile @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  
+  certifyingAgency  String
+  certificationNumber String @unique
+  certificationDate DateTime
+  expiryDate        DateTime?
+  certificationFile String?
+  status            CertificationStatus @default(PENDING)
+  
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([vendorId])
+  @@index([status])
+  @@index([expiryDate])
+}
